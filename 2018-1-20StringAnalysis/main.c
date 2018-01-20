@@ -32,7 +32,8 @@ int main(){
     char *common;
     int size = strlen(w);
     int size2;
-    char *rs="ll";
+    char *rs[256];
+    int count = 0;
     printf("\nlength: %d", size);
     printf("\ntest concat: %s", concatStr("hello "," world"));
     printf("\ntest append: %s", appendStr("hello ",'c'));
@@ -41,12 +42,10 @@ int main(){
         size2 = strlen(w2);
         for(int j=0; j<=size2-1; j++){
             if(w[i]==w2[j]){
-                // rs = strAppend(rs,w2[j]);
-                
-                printf("\ncommon: %c ", w2[j]);
-                 printf("\ncommon: %s ", rs);
+                rs[count] = w2[j];
+                count++;
             }
         }
-        // printf("\nletter: %c", w[i]);
+        printf("\nletter: %s", rs);
     }
 }
