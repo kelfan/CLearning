@@ -2,6 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+char* addChar2Str(char* s, char c)
+{
+        int len = strlen(s);
+        char* tmp;
+        tmp = (char*)malloc(sizeof(char) * (len+1));
+        strcpy(tmp, s);
+        tmp[len] = c;
+        tmp[len+1] = '\0';
+        s = tmp;
+        printf("addChar2Str: %s", s);
+        return s;
+}
+
+
 char* appendStr(char* s, char c)
 {
         int len = strlen(s);
@@ -32,20 +46,19 @@ int main(){
     char *common;
     int size = strlen(w);
     int size2;
-    char *rs[256];
+    char *rs = "";
     int count = 0;
     printf("\nlength: %d", size);
     printf("\ntest concat: %s", concatStr("hello "," world"));
     printf("\ntest append: %s", appendStr("hello ",'c'));
+    printf("\naddChar2Str: %s", addChar2Str("hello ",'c'));
 
     for(int i=0; i<=size-1; i++){
         size2 = strlen(w2);
         for(int j=0; j<=size2-1; j++){
             if(w[i]==w2[j]){
-                rs[count] = w2[j];
-                count++;
+                printf("\nletter: %s", addChar2Str(rs, w2[j]));
             }
         }
-        printf("\nletter: %s", rs);
     }
 }
