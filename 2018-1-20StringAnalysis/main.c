@@ -63,11 +63,11 @@ char* subStr(char* inStr, int start, int end){
     int len = end - start+1;
     char* result = newStrLen(len);
     for(int i=0; i<=len-1; i++){
-        printf("\ninStr[i]: %c ", inStr[start+i-1]);
+        // printf("\ninStr[i]: %c ", inStr[start+i-1]);
         result[i] = inStr[start+i-1];
     }
     result[len]='\0';
-    printf("\nresult: %s", result);
+    // printf("\nresult: %s", result);
     return result;
 }
 
@@ -98,7 +98,14 @@ int main(){
         size2 = strlen(w2);
         for(int j=0; j<=size2-1; j++){
             if(w[i]==w2[j]){
-                int letter_count = compareStrComLength(w, w2);
+                char* sub1 = subStr(w, i-1, size);
+                char* sub2 = subStr(w2, j-1, size2);
+                // printf("\nsubString: %s, %s ", sub1, sub2);
+                int letter_count = compareStrComLength(sub1, sub2);
+                if(letter_count >= 2){
+                    char* commonStr = subStr(w2, j-1, j+letter_count-2);
+                    printf("\ncommon String: %s", commonStr);
+                }
                 // printf("\nletter_count: %d", letter_count);
                 // printf("\ncommon letter: %s", subStr(w, 0, letter_count));
                 // char inside = w[i];
