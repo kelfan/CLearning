@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
-E:/workspace/CLearning/20180103CLearning/main.c
+E:/workspace/CLearning/2018-2-11CLion/main.c
 stdio.h
 -
 stdlib.h
 -
+string.h
+-
+strhandler.h
+E:/workspace/CLearning/2018-2-11CLion/strhandler.h
+
+E:/workspace/CLearning/2018-2-11CLion/strhandler.h
 

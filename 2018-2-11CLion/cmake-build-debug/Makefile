@@ -47,24 +47,13 @@ RM = "D:\Program Files\JetBrains\CLion 2017.3.3\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\workspace\CLearning\20180103CLearning
+CMAKE_SOURCE_DIR = E:\workspace\CLearning\2018-2-11CLion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\workspace\CLearning\20180103CLearning\cmake-build-debug
+CMAKE_BINARY_DIR = E:\workspace\CLearning\2018-2-11CLion\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\Program Files\JetBrains\CLion 2017.3.3\bin\cmake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -77,11 +66,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"D:\Program Files\JetBrains\CLion 2017.3.3\bin\cmake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\workspace\CLearning\20180103CLearning\cmake-build-debug\CMakeFiles E:\workspace\CLearning\20180103CLearning\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\workspace\CLearning\2018-2-11CLion\cmake-build-debug\CMakeFiles E:\workspace\CLearning\2018-2-11CLion\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\workspace\CLearning\20180103CLearning\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\workspace\CLearning\2018-2-11CLion\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,32 +110,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 20180103CLearning
+# Target rules for targets named 2018_2_11CLion
 
 # Build rule for target.
-20180103CLearning: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 20180103CLearning
-.PHONY : 20180103CLearning
+2018_2_11CLion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 2018_2_11CLion
+.PHONY : 2018_2_11CLion
 
 # fast build rule for target.
-20180103CLearning/fast:
-	$(MAKE) -f CMakeFiles\20180103CLearning.dir\build.make CMakeFiles/20180103CLearning.dir/build
-.PHONY : 20180103CLearning/fast
+2018_2_11CLion/fast:
+	$(MAKE) -f CMakeFiles\2018_2_11CLion.dir\build.make CMakeFiles/2018_2_11CLion.dir/build
+.PHONY : 2018_2_11CLion/fast
 
-# target to build an object file
-main.obj:
-	$(MAKE) -f CMakeFiles\20180103CLearning.dir\build.make CMakeFiles/20180103CLearning.dir/main.obj
+main.obj: main.c.obj
+
 .PHONY : main.obj
 
-# target to preprocess a source file
-main.i:
-	$(MAKE) -f CMakeFiles\20180103CLearning.dir\build.make CMakeFiles/20180103CLearning.dir/main.i
+# target to build an object file
+main.c.obj:
+	$(MAKE) -f CMakeFiles\2018_2_11CLion.dir\build.make CMakeFiles/2018_2_11CLion.dir/main.c.obj
+.PHONY : main.c.obj
+
+main.i: main.c.i
+
 .PHONY : main.i
 
-# target to generate assembly for a file
-main.s:
-	$(MAKE) -f CMakeFiles\20180103CLearning.dir\build.make CMakeFiles/20180103CLearning.dir/main.s
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) -f CMakeFiles\2018_2_11CLion.dir\build.make CMakeFiles/2018_2_11CLion.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
 .PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) -f CMakeFiles\2018_2_11CLion.dir\build.make CMakeFiles/2018_2_11CLion.dir/main.c.s
+.PHONY : main.c.s
 
 # Help Target
 help:
@@ -143,9 +155,9 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... 20180103CLearning
-	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... 2018_2_11CLion
+	@echo ... edit_cache
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
